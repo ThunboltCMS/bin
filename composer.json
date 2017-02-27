@@ -1,0 +1,9 @@
+{
+	"name": "thunbolt/bin",
+	"autoload": {
+		"psr-4": {
+			"Thunbolt\\Console\\": "src"
+		}
+	},
+	"bin": ["bin/bower", "bin/init", "bin/minify", "bin/production"]
+}
