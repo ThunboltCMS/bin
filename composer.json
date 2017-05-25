@@ -5,5 +5,8 @@
 			"Thunbolt\\Console\\": "src"
 		}
 	},
+	"require": {
+		"php": ">=7.1"
+	},
 	"bin": ["bin/bower", "bin/init", "bin/minify", "bin/production"]
 }

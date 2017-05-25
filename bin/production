@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 use Thunbolt\Console\Console;
 
 require __DIR__ . '/../src/autoload.php';
