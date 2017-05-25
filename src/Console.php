@@ -35,7 +35,7 @@ class Console {
 		fprintf(STDOUT, $msg . "\n");
 	}
 
-	public static function bold(string $msg): void {
+	public static function bold(string $msg): string {
 		return "\033[1m" . $msg . "\033[22m";
 	}
 
