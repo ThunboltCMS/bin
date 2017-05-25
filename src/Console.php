@@ -6,6 +6,9 @@ namespace Thunbolt\Console;
 
 class Console {
 
+	/** @var string */
+	private static $root;
+
 	public static function chooseBool(): bool {
 		echo 'Your choose (y/n): ';
 		$stdin = fopen('php://stdin', 'r');
@@ -44,6 +47,26 @@ class Console {
 		exec('command -v ' . $name, $x, $return);
 
 		return $return === 0;
+	}
+
+	public static function findRoot(): string {
+		if (!self::$root) {
+			$paths = [
+				__DIR__ . '/../../../../',
+				getcwd() . '/',
+				getcwd() . '/../'
+			];
+
+			self::$root = '';
+			foreach ($paths as $path) {
+				if (file_exists($path . 'vendor')) {
+					self::$root = $path;
+					break;
+				}
+			}
+		}
+
+		return self::$root;
 	}
 
 }

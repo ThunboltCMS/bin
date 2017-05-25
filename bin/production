@@ -3,17 +3,8 @@
 
 declare(strict_types=1);
 
-use Thunbolt\Console\Console;
+use Thunbolt\Console\Scripts;
 
 require __DIR__ . '/../src/autoload.php';
 
-if (!Console::existScript('composer')) {
-	Console::error('Composer command not exists.');
-}
-
-chdir(__DIR__);
-Console::command('Minify css/js:');
-system('./minify');
-Console::command('Composer dump-autoload:');
-chdir(__DIR__ . '/..');
-system('composer dump-autoload -o');
+Scripts::production();

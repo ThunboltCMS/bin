@@ -3,17 +3,8 @@
 
 declare(strict_types=1);
 
-use Thunbolt\Console\Console;
+use Thunbolt\Console\Scripts;
 
 require __DIR__ . '/../src/autoload.php';
 
-if (Console::existScript('bower')) {
-	$executor = 'bower';
-} else {
-	if (!file_exists($executor = __DIR__ . '/../node_modules/.bin/bower')) {
-		Console::error('Cannot run bower. Not installed.');
-	}
-}
-
-chdir(__DIR__ . '/..');
-system($executor . ' install');
+Scripts::bowerInstall();

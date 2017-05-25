@@ -3,17 +3,8 @@
 
 declare(strict_types=1);
 
-use Thunbolt\Console\Console;
+use Thunbolt\Console\Scripts;
 
 require __DIR__ . '/../src/autoload.php';
 
-if (Console::existScript('grunt')) {
-	$executor = 'grunt';
-} else {
-	if (!file_exists($executor = __DIR__ . '/../node_modules/grunt-cli/bin/grunt')) {
-		Console::error('Cannot run grunt. Not installed.');
-	}
-}
-
-chdir(__DIR__ . '/..');
-system($executor);
+Scripts::grunt();

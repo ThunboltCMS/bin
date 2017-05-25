@@ -3,19 +3,8 @@
 
 declare(strict_types=1);
 
-use Thunbolt\Console\Console;
+use Thunbolt\Console\Scripts;
 
 require __DIR__ . '/../src/autoload.php';
 
-if (php_sapi_name() !== 'cli') {
-	error('Run script in terminal.');
-}
-
-if (!Console::existScript('npm')) {
-	Console::warning('npm script not exists. Ending.');
-	exit(0);
-}
-if (!file_exists(__DIR__ . '/../node_modules')) {
-	Console::info('Installing npm...');
-	system('npm install');
-}
+Scripts::init();
